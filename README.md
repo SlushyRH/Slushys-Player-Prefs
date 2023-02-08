@@ -6,11 +6,11 @@ With Slushy's Player Prefs you can save and load any serializable data type with
 ## Features
 |                             | Player Prefs     | Slushy's Player Prefs
 |-----------------------------|------------------|------------------
-| Encryption                  |:x:               |:heavy_check_mark:
-| Set and Get Ints            |:heavy_check_mark:|:heavy_check_mark:
+| Encryption                  |❌               |:heavy_check_mark:
+| Set and Get Ints            |✔️|:heavy_check_mark:
 | Set and Get Strings         |:heavy_check_mark:|:heavy_check_mark:
 | Set and Get Floats          |:heavy_check_mark:|:heavy_check_mark:
-| Set and Get Booleans        |:x:               |:heavy_check_mark:
+| Set and Get Booleans        |❌              |:heavy_check_mark:
 | Set and Get Chars           |:x:               |:heavy_check_mark:
 | Set and Get Doubles         |:x:               |:heavy_check_mark:
 | Set and Get Enums           |:x:               |:heavy_check_mark:
