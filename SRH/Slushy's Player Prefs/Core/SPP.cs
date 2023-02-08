@@ -12,8 +12,6 @@ namespace SRH
 {
     public static class SPP
     {
-        public static bool Encrypt { get; set; }
-
         #region Events
         /// <summary>
         /// Called when Save() is called.
@@ -71,23 +69,28 @@ namespace SRH
         /// <param name="value">The value to be saved.</param>
         public static void Set(string key, object value)
         {
+            string content = SPPUtility.SerializeToBinary(value);
+
+            // Sets the value (encrypted or not) to player prefs
+            PlayerPrefs.SetString(key, content);
+        }
+
+        /// <summary>
+        /// Sets an encrypted value to be saved on the players disk identified by the given key. You can use PlayerPrefsPlus.Get to retrieve this value.
+        /// </summary>
+        /// <param name="key">The identifying string.</param>
+        /// <param name="value">The value to be saved.</param>
+        public static void SetEncrypted(string key, object value)
+        {
             string content;
 
-            if (Encrypt)
-            {
-                // encrypt data
-                string encryptedContent = SPPUtility.SerializeToBinary(value);
-                byte[] data = SPPUtility.Encrypt(Convert.FromBase64String(encryptedContent));
+            // encrypt data
+            string encryptedContent = SPPUtility.SerializeToBinary(value);
+            byte[] data = SPPUtility.Encrypt(Convert.FromBase64String(encryptedContent));
 
-                // Convert encrypted data to string
-                content = Convert.ToBase64String(data);
-                PlayerPrefs.SetString($"{key}_Encrypted", "true");
-            }
-            else
-            {
-                // if no encryption needed then just serialize it
-                content = SPPUtility.SerializeToBinary(value);
-            }
+            // Convert encrypted data to string
+            content = Convert.ToBase64String(data);
+            PlayerPrefs.SetString($"{key}_Encrypted", "true");
 
             // Sets the value (encrypted or not) to player prefs
             PlayerPrefs.SetString(key, content);
@@ -105,24 +108,15 @@ namespace SRH
             string content = PlayerPrefs.GetString(key);
             object value = null;
 
-            // Check if prefs should be encrypted
-            if (Encrypt)
+            // Check if the pref is encrypted
+            if (SPPUtility.IsEncrypted(key))
             {
-                // Check if the pref is encrypted
-                if (SPPUtility.IsEncrypted(key))
-                {
-                    // Decrypt the string and convert it to a string
-                    byte[] data = SPPUtility.Decrypt(Convert.FromBase64String(content));
-                    string encrypted = Convert.ToBase64String(data);
+                // Decrypt the string and convert it to a string
+                byte[] data = SPPUtility.Decrypt(Convert.FromBase64String(content));
+                string encrypted = Convert.ToBase64String(data);
 
-                    // Deserialize encrypted string to binary
-                    value = SPPUtility.DeserializeToBinary<object>(encrypted);
-                }
-                else
-                {
-                    // Deserialize string to binary
-                    value = SPPUtility.DeserializeToBinary<object>(content);
-                }
+                // Deserialize encrypted string to binary
+                value = SPPUtility.DeserializeToBinary<object>(encrypted);
             }
             else
             {
