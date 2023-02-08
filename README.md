@@ -6,21 +6,21 @@ With Slushy's Player Prefs you can save and load any serializable data type with
 ## Features
 |                             | Player Prefs     | Slushy's Player Prefs
 |-----------------------------|------------------|------------------
-| Encryption                  |❌               |:heavy_check_mark:
-| Set and Get Ints            |✔️|:heavy_check_mark:
-| Set and Get Strings         |:heavy_check_mark:|:heavy_check_mark:
-| Set and Get Floats          |:heavy_check_mark:|:heavy_check_mark:
-| Set and Get Booleans        |❌              |:heavy_check_mark:
-| Set and Get Chars           |:x:               |:heavy_check_mark:
-| Set and Get Doubles         |:x:               |:heavy_check_mark:
-| Set and Get Enums           |:x:               |:heavy_check_mark:
-| Set and Get Vector2         |:x:               |:heavy_check_mark:
-| Set and Get Vector3         |:x:               |:heavy_check_mark:
-| Set and Get Vector4         |:x:               |:heavy_check_mark:
-| Set and Get Quaternion      |:x:               |:heavy_check_mark:
-| Set and Get Colors          |:x:               |:heavy_check_mark:
-| Set and Get Lists           |:x:               |:heavy_check_mark:
-| Set and Get Arrays          |:x:               |:heavy_check_mark:
+| Encryption                  |❌|✔️
+| Set and Get Ints            |✔️|✔️
+| Set and Get Strings         |✔️|✔️
+| Set and Get Floats          |✔️|✔️
+| Set and Get Booleans        |❌|✔️
+| Set and Get Chars           |❌|✔️
+| Set and Get Doubles         |❌|✔️
+| Set and Get Enums           |❌|✔️
+| Set and Get Vector2         |❌|✔️
+| Set and Get Vector3         |❌|✔️
+| Set and Get Vector4         |❌|✔️
+| Set and Get Quaternion      |❌|✔️
+| Set and Get Colors          |❌|✔️
+| Set and Get Lists           |❌|✔️
+| Set and Get Arrays          |❌|✔️
 
 ## How to Use
 More information in the Demo Scene included in the product.
