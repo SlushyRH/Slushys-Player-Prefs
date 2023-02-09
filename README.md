@@ -6,7 +6,7 @@ With Slushy's Player Prefs you can save and load any serializable data type with
 ## Features
 |                             | Player Prefs     | Slushy's Player Prefs
 |-----------------------------|------------------|------------------
-| Encryption                  |❌|✔️
+| Encryption (AES)            |❌|✔️
 | Set and Get Ints            |✔️|✔️
 | Set and Get Strings         |✔️|✔️
 | Set and Get Floats          |✔️|✔️
