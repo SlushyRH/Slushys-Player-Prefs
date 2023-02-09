@@ -72,7 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Files not needed
-PlayerPrefsEditor.meta
 LICENSE.meta
 README.md.meta
 SRH.meta
