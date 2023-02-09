@@ -4,12 +4,11 @@
  */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 using SRH.External.OdinSerializer;
-using System.Security.Cryptography;
 
 namespace SRH
 {
@@ -22,7 +21,12 @@ namespace SRH
         internal static bool IsEncrypted(string key)
         {
             // Check if there is a key with _Encrypted on the end meaning that the original key is encrypted
-            return SPP.HasKey($"{key}_Encrypted");
+            string content = PlayerPrefs.GetString(key);
+
+            if (content.StartsWith("[SRH]"))
+                return true;
+
+            return false;
         }
 
         internal static string SerializeToBinary(object value)

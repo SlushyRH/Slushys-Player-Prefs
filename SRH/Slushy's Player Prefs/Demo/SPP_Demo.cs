@@ -33,6 +33,8 @@ namespace SRH
         private List<int> scores = new List<int>();
         private int[] ids = new int[4];
 
+        public bool encrypt = false;
+        [Space]
         public Text scoreText;
         public Text highscoreText;
         public Text finishedText;
@@ -62,25 +64,42 @@ namespace SRH
             colorText.text = $"Color:";
             scoresText.text = $"Scores:";
             idsText.text = $"Ids:";
-
-            SPP.Encrypt = true;
         }
 
         public void Set()
         {
-            SPP.Set("score", score);
-            SPP.Set("highscore", highscore);
-            SPP.Set("playerName", playerName);
-            SPP.Set("hasFinished", hasFinished);
-            SPP.Set("randomLetter", randomLetter);
-            SPP.Set("averageWinsRatio", averageWinsRatio);
-            SPP.Set("status", status);
-            SPP.Set("position2D", position2D);
-            SPP.Set("position3D", position3D);
-            SPP.Set("rotationQuaternion", rotationQuaternion);
-            SPP.Set("color", color);
-            SPP.Set("scores", scores);
-            SPP.Set("ids", ids);
+            if (!encrypt)
+            {
+                SPP.Set("score", score);
+                SPP.Set("highscore", highscore);
+                SPP.Set("playerName", playerName);
+                SPP.Set("hasFinished", hasFinished);
+                SPP.Set("randomLetter", randomLetter);
+                SPP.Set("averageWinsRatio", averageWinsRatio);
+                SPP.Set("status", status);
+                SPP.Set("position2D", position2D);
+                SPP.Set("position3D", position3D);
+                SPP.Set("rotationQuaternion", rotationQuaternion);
+                SPP.Set("color", color);
+                SPP.Set("scores", scores);
+                SPP.Set("ids", ids);
+            }
+            else
+            {
+                SPP.SetEncrypted("score", score);
+                SPP.SetEncrypted("highscore", highscore);
+                SPP.SetEncrypted("playerName", playerName);
+                SPP.SetEncrypted("hasFinished", hasFinished);
+                SPP.SetEncrypted("randomLetter", randomLetter);
+                SPP.SetEncrypted("averageWinsRatio", averageWinsRatio);
+                SPP.SetEncrypted("status", status);
+                SPP.SetEncrypted("position2D", position2D);
+                SPP.SetEncrypted("position3D", position3D);
+                SPP.SetEncrypted("rotationQuaternion", rotationQuaternion);
+                SPP.SetEncrypted("color", color);
+                SPP.SetEncrypted("scores", scores);
+                SPP.SetEncrypted("ids", ids);
+            }
 
             SetText();
         }

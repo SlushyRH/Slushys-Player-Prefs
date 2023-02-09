@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8e35cc5746aa44788c6e62bc423fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encrypt: 0
   scoreText: {fileID: 1298679505}
   highscoreText: {fileID: 1257584326}
   finishedText: {fileID: 173377336}

@@ -90,10 +90,11 @@ namespace SRH
 
             // Convert encrypted data to string
             content = Convert.ToBase64String(data);
-            PlayerPrefs.SetString($"{key}_Encrypted", "true");
+            string encryptionKeyword = "[SRH]";
 
             // Sets the value (encrypted or not) to player prefs
-            PlayerPrefs.SetString(key, content);
+            string finalContent = encryptionKeyword + content;
+            PlayerPrefs.SetString(key, finalContent);
         }
 
         /// <summary>
@@ -112,7 +113,8 @@ namespace SRH
             if (SPPUtility.IsEncrypted(key))
             {
                 // Decrypt the string and convert it to a string
-                byte[] data = SPPUtility.Decrypt(Convert.FromBase64String(content));
+                string rawContent = content.Remove(0, 5);
+                byte[] data = SPPUtility.Decrypt(Convert.FromBase64String(rawContent));
                 string encrypted = Convert.ToBase64String(data);
 
                 // Deserialize encrypted string to binary
