@@ -1,5 +1,5 @@
 # Slushy's Player Prefs
-An easy to use, scalable and flexible alternative to Unity's default Player Prefs. Slushy's Player Prefs are available for download on the [Unity Asset Store]() or this Github's [Releases](https://github.com/SlushyRH/Slushys-Player-Prefs/releases) page.
+An easy to use, scalable and flexible alternative to Unity's default Player Prefs. Slushy's Player Prefs are available for download on this Github's [Releases](https://github.com/SlushyRH/Slushys-Player-Prefs/releases) page. Unity Asset Store verison is in review by Unity.
 
 With Slushy's Player Prefs you can save and load any serializable data type with two very simple methods!
 
